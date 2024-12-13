@@ -1,0 +1,15 @@
+<%= form_with(model: tag) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :slug %>
+    <%= form.text_field :slug %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

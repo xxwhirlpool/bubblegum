@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   has_one_attached :icon, dependent: :detach
 
   has_many :taggings
-  has_many :tags, through: :taggings
+  belongs_to :tag, dependent: :destroy
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }

@@ -1,25 +1,76 @@
 class TagsController < ApplicationController
+#  before_action :set_tag, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :except => [:show]
+
+  # GET /tags or /tags.json
   def index
-    @tags = Tag.all
+    @tag = Tag.all
   end
 
-  def create
-    @tags = Tag.new(tag_params)
+  # GET /tags/1 or /tags/1.json
+  def show
+    @tag = Tag.friendly.find(params[:id])
+#    @article = Article.friendly.find_by(params[:id])
+  end
 
-    if @tags.save
-      redirect_to @tags
-    else
-      render :new, status: :unprocessable_entity
+  # GET /tags/new
+  def new
+    @tag = Tag.new
+  end
+
+  # GET /tags/1/edit
+  def edit
+    @tag = Tag.friendly.find(params[:id])
+  end
+
+  # POST /tags or /tags.json
+  def create
+    @tag = Tag.new(tag_params)
+
+    respond_to do |format|
+      if @tag.save
+        format.html { redirect_to tag_url(@tag), notice: "Tag was successfully created." }
+        format.json { render :show, status: :created, location: @tag }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @tag.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def show
-    @tags = Tag.find(params[:id])
+  # PATCH/PUT /tags/1 or /tags/1.json
+  def update
+    respond_to do |format|
+      if @tag.update(tag_params)
+        format.html { redirect_to tag_url(@tag), notice: "Tag was successfully updated." }
+        format.json { render :show, status: :ok, location: @tag }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @tag.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /tags/1 or /tags/1.json
+  def destroy
+    @tag = Tag.friendly.find(params[:id])
+    if @tag.present?
+      @tag.destroy!
+    end
+    respond_to do |format|
+      format.html { redirect_to tags_url, notice: "Tag was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private
-  def tag_params
-      params.require(:tags).permit(:name)
-  end
+    # Use callbacks to share common setup or constraints between actions.
+#    def set_tag
+ #     @tag = Tag.friendly.find(params[:id])
+  #  end
 
+    # Only allow a list of trusted parameters through.
+    def tag_params
+      params.require(:tag).permit(:id, :name, :slug)
+    end
 end

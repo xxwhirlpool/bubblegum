@@ -1,11 +1,14 @@
 <div class="main">
 
-  <ul>
-    <% Tag.articles.each do |articles| %>
-      <li>
-        <%= link_to article.title, article %>
-      </li>
-    <% end %>
-  </ul>
+<h1><%= render @tag %></h1>
+
+<p>
+<%= link_to "edit", edit_tag_path(@tag) %> |
+  <% if user_signed_in? %>
+    <%= link_to "delete", @tag, method: :delete %>
+  <% else %>
+    <%= link_to "back", tags_path %>
+  <% end %>
+</p>
 
 </div>

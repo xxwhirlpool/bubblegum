@@ -1,10 +1,12 @@
 <div class="main">
 
+<h1>🐬 tags</h1>
+
 <ul>
-  <% Tag.all.each do |tag| %>
-      <li>
-        <%= link_to tag.name, tag_path(tag.name) %>
-      </li>
+  <% @tag.each do |tag| %>
+    <li>
+      <%= render tag %>
+    </li>
   <% end %>
 </ul>
 

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'tags/index'
-  get 'tags/create'
-  resources :galleries
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,24 +10,24 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  get 'tags/index'
-  get 'tags/create'
   get "/tags", to: "tags#index"
+#  get "tags/:edit" => "tags#edit", as: :edit_tag_path
   get "tags/:id" => "tags#show", as: :tag
+  get "tags/:new" => "tags#new"
+#  resources :tag, path: '', only: [:show] 
+  resources :tags
+end
 
-  resources :galleries
+Rails.application.routes.draw do
   get "/articles", to: "articles#index"
-#  get 'tags/:tag', to: 'articles#index', as: "tag"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
 Rails.application.routes.draw do
-  resources :galleries
         get "/users", to: "users#index", via: "get"
 end
 
 Rails.application.routes.draw do
-  resources :galleries
   root "articles#index"
   
   resources :profiles

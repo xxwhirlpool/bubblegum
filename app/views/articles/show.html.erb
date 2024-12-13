@@ -8,8 +8,6 @@
 
 <p class="article_date"><%= @article.created_at.strftime('%Y %b %d') %></p>
 
-<p class="article_date"><%= raw tag_links(@article.all_tags) %></p>
-
 <div class="pbody"><%== @article.body %></div>
 
 <% if user_signed_in? %>

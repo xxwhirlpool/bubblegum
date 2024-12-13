@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @article = Article.all
+    @tags = Tag.all
     @profiles = Profile.all
     respond_to do |format|
       format.html
@@ -57,6 +58,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status, :icon, :all_tags)
+      params.require(:article).permit(:title, :body, :status, :icon, :tag_id)
     end
 end
