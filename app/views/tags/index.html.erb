@@ -1,0 +1,11 @@
+<div class="main">
+
+<ul>
+  <% Tag.all.each do |tag| %>
+      <li>
+        <%= link_to tag.name, tag_path(tag.name) %>
+      </li>
+  <% end %>
+</ul>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="main">
+
+<h1>🐬 sweet like bubblegum</h1>
+
+<div class="pfp"><%= render @profile %></div>
+
+<div class="test2">
+<ul class="profile_list">
+<li><%= @profile.name %></li>
+<li><%= @profile.pronouns %></li>
+<li><%= @profile.age %></li>
+</ul>
+</div>
+
+<div class="pbody"><%== @profile.bio %></div>
+
+<% if user_signed_in? %>
+  <ul>
+  <li><%= link_to "edit", edit_profile_path(id: current_user) %></li>
+  </ul>
+<% else %>
+<% end %>
+
+<hr>
+
+<ul>
+<li><a href="/profiles/1">refresh</a></li>
+<li><%= link_to "home", articles_path %></li>
+</ul>
+
+</div>

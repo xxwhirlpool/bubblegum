@@ -1,0 +1,56 @@
+<div class="main">
+
+<h1>🐬 sweet like bubblegum</h1>
+
+<div class="profile">
+
+<% if user_signed_in? %>
+    <div class="pfp"><%= render @profiles %></div>
+<% else %>
+    <div class="pfp"><%= render @profiles %></div>
+<% end %>
+
+<div class="test2">
+<% if user_signed_in? %>
+ <div> welcome <%= current_user.email %> </div> 
+  <%= button_to "log out", destroy_user_session_path, method: :delete, style: 'margin-left: .5em' %> 
+<% else %>
+ <div> i'm kat! </div>
+  <%= button_to "log in if you're me", new_user_session_path, style: 'margin-left: .5em' %> 
+<% end %>
+</div>
+
+<div class="test2">
+<% if user_signed_in? %>
+    <ul>
+    <li><%= link_to "new", new_article_path %></li>
+    <li><%= link_to "edit", edit_profile_path(id: current_user) %></li>
+    <li><%= link_to "view", profile_path(id: current_user) %></li>
+    </ul>
+<% else %>
+    <ul>
+    <li><a href="/profiles/1">me</a></li>
+    <li><%= link_to "refresh", articles_path %></li>
+    </ul>
+<% end %>
+</div>
+
+</div>
+
+<hr>
+
+<p>my blog has <%= Article.public_count %> articles and counting!</p>
+
+<p><a href="/articles.rss">subscribe via rss</a></p>
+
+<ul>
+  <% Article.all.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+</div>

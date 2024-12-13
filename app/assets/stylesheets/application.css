@@ -1,0 +1,161 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+ @font-face {
+  font-family: 'Raleway';
+  font-weight: 400;
+  src: url('Raleway-VariableFont_wght.ttf');
+}
+
+body {
+background: url('bg5.jpg') repeat;
+font: 1em 'Raleway', 'courier new';
+}
+
+.main {
+background: #e8effc;
+width: 800px;
+min-height: 800px;
+max-height: 10000px;
+margin: auto auto 1em auto;
+padding: 1em;
+text-align:left;
+color: #0d141a;
+}
+
+h1,h2,h3,h4,h5, strong {
+color: #4f6599;
+}
+
+a:link, a:link:active, a:visited, a:visited:active {
+color: #509145;
+}
+
+a:hover {
+text-decoration: none;
+}
+
+::selection {
+background: #4f6599;
+color: #e8effc;
+}
+
+ul {
+padding: 0;
+margin-top: .5em;
+}
+
+li {
+list-style-type: none;
+margin-bottom: .5em;
+}
+
+li:before {
+content: "○";
+margin: 0 10px 0 0;
+}
+
+.icon {
+/* text-align:center; */
+}
+
+p.profile_list {
+color: #4f6599;
+text-align:center;
+}
+
+ul.profile_list {
+color: #4f6599;
+}
+
+.profile_list li::before {
+margin: 0 10px 0 0;
+}
+
+.useroptions {
+float: right;
+}
+
+.test2 {
+padding-left: 1em;
+display: flex;
+flex-direction: row;
+align-items: baseline;
+}
+
+hr {
+border-top: 1px solid #4f6599;
+border-bottom: none;
+margin: 1.5em 0 1.5em 0;
+}
+
+hr::after {
+content: '🐬';
+display: inline-block;
+position: absolute;
+left: 50%;
+background: #e8effc;
+padding: 1rem;
+transform: translate(-50%, -50%);
+transform-origin: 50% 50%;
+}
+
+.pfp {
+float:left;
+}
+
+.footer {
+display: flex;
+flex-wrap: wrap;
+}
+
+.footer ul {
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+gap: 5px;
+margin-top: 0;
+}
+
+.footer li::before {
+margin: 0 10px 0 0;
+}
+
+.profile {
+margin: 1em 0 1em 0;
+}
+
+.article_date {
+color: #4f6599;
+text-transform: lowercase;
+}
+
+.pbody p {
+font-family: 'Raleway', 'Times New Roman';
+}
+
+.pbody li {
+font-family: 'Raleway', 'Times New Roman';
+}
+
+.pbody code {
+color: #509145;
+padding-left: 2em;
+display: block;
+text-align: left;
+border-left: 1px solid #4f6599;
+margin-top: 1em;
+}
