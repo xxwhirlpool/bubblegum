@@ -11,22 +11,20 @@
 <div class="pbody"><%== @article.body %></div>
 
 <% if user_signed_in? %>
-<ul>
-<li><%= link_to "edit", edit_article_path(@article) %></li>
-<li><%= link_to "destroy", article_path(@article), data: {
+<p>
+<%= link_to "edit", edit_article_path(@article) %> |
+<%= link_to "destroy", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-
-</ul>
+                  } %>
+</p>
 <% else %>
 <% end %>
 
 <hr>
 
-<ul>
-<li><%= link_to "home", articles_path %></li>
-<li><a href="/profiles/1">me</a></li>
-</ul>
+<p>
+<%= link_to "home", articles_path %> | <a href="/profiles/1">me</a>
+</p>
 
 </div>
