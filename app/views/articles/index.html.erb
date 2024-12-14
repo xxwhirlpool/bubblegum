@@ -39,9 +39,7 @@
 
 <hr>
 
-<p>my blog has <%= Article.public_count %> articles and counting!</p>
-
-<p><%= link_to "tags", tags_path %> | <a href="/articles.rss">rss</a></p>
+<p><%= link_to "tags", tags_path %> | <a href="/articles.rss">rss</a> | <%= Article.public_count %> total articles </p>
 
 <ul>
   <% Article.all.each do |article| %>
