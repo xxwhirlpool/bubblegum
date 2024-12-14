@@ -2,13 +2,23 @@
 
 <h1><%= render @tag %></h1>
 
+<ul>
+  <% @tag.articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article) %>  
+    </li>
+  <% end %>
+</ul>
+
+
 <p>
 <%= link_to "edit", edit_tag_path(@tag) %> |
   <% if user_signed_in? %>
     <%= link_to "delete", @tag, method: :delete %>
   <% else %>
     <%= link_to "back", tags_path %>
-  <% end %>
+  <% end %> |
+<%= link_to "home", articles_path %>
 </p>
 
 </div>
