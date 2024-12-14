@@ -139,7 +139,13 @@ margin: 1em 0 1em 0;
 }
 
 .article_date {
+/* color: #4f6599; */
+text-transform: lowercase;
+}
+
+div.article_date_text {
 color: #4f6599;
+display: inline-block;
 text-transform: lowercase;
 }
 
@@ -159,3 +165,4 @@ text-align: left;
 border-left: 1px solid #4f6599;
 margin-top: 1em;
 }
+

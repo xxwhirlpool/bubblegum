@@ -6,7 +6,7 @@
     <%= image_tag url_for(@article.icon) %>
 <% end %>
 
-<p class="article_date"><%= @article.created_at.strftime('%Y %b %d') %></p>
+<p class="article_date"><div class="article_date_text"><%= @article.created_at.strftime('%Y %b %d') %></div> | <%= link_to @article.tag.name, @article.tag %></p>
 
 <div class="pbody"><%== @article.body %></div>
 
