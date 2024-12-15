@@ -45,7 +45,7 @@
   <% Article.all.reverse.each do |article| %>
     <% unless article.archived? %>
       <li>
-        <%= link_to article.title, article %>
+        <div class="article_date_text"><%= article.created_at.strftime('%Y %b %d') %></div>: <%= link_to article.title, article %>
       </li>
     <% end %>
   <% end %>
