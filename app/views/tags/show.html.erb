@@ -12,12 +12,17 @@
 
 
 <p>
-<%= link_to "edit", edit_tag_path(@tag) %> |
   <% if user_signed_in? %>
+    <%= link_to "edit", edit_tag_path(@tag) %> |
     <%= link_to "delete", @tag, method: :delete %>
   <% else %>
-    <%= link_to "back", tags_path %>
-  <% end %> |
+  <% end %>
+</p>
+
+<hr>
+
+<p>
+<%= link_to "back", tags_path %> |
 <%= link_to "home", articles_path %>
 </p>
 
