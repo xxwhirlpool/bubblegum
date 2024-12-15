@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>🐬 sweet like bubblegum</title>
+    <title>sweet like bubblegum</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application.css" %>
-    
+    <%= favicon_link_tag asset_path("favicon.png") %>
     <%= auto_discovery_link_tag :rss, articles_url(:format => :rss) %>
 
   </head>
