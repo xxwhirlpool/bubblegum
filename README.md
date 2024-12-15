@@ -9,7 +9,7 @@ hi this is my new git repo for my blog bubblegum. i wrote this based on the rail
 ### completed to-do stuff
 * make tags actually functional because i started adding them in prod like a fucking dumbass, got stuck, and never finished it because i was stuck and frustrated
 
-### also some manual rails console tagging commands are down here for me to remember and use:
+### mini rails console command cheatsheet for me:
 
 new tags:
 
