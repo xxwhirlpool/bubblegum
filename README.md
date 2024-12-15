@@ -14,8 +14,6 @@ hi this is my new git repo for my blog bubblegum. i wrote this based on the rail
 new tags:
 
 ```ruby
-t.articles << Article.find_by(id:"1")
-
 t = Tag.new(:name => 'tutorial')
 
 t.save!
