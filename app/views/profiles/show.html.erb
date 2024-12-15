@@ -15,17 +15,16 @@
 <div class="pbody"><%== @profile.bio %></div>
 
 <% if user_signed_in? %>
-  <ul>
-  <li><%= link_to "edit", edit_profile_path(id: current_user) %></li>
-  </ul>
+<p>
+  <%= link_to "edit", edit_profile_path(id: current_user) %></li>
+</p>
 <% else %>
 <% end %>
 
 <hr>
 
-<ul>
-<li><a href="/profiles/1">refresh</a></li>
-<li><%= link_to "home", articles_path %></li>
-</ul>
+<p>
+<%= link_to "home", articles_path %>
+</p>
 
 </div>
