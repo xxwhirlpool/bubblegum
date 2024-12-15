@@ -8,3 +8,17 @@ site to-do list
 
 completed to-do stuff
 * make tags actually functional because i started adding them in prod like a fucking dumbass, got stuck, and never finished it because i was stuck and frustrated
+
+also some manual rails console tagging commands are down here for me to remember and use:
+
+```ruby
+t.articles = []
+
+t.articles << Article.find_by(id:"1")
+
+t = Tag.new(:name => 'tutorial')
+
+t.save!
+
+t = Tag.find_by(name: "tutorial")
+```
