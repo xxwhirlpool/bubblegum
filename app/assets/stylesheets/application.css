@@ -17,17 +17,18 @@
  @font-face {
   font-family: 'Raleway';
   font-weight: 400;
-  src: url('Raleway-VariableFont_wght.ttf');
+  src: url("Raleway-VariableFont_wght.ttf");
 }
 
 @font-face {
 	font-family: 'Gudea';
-	src: url ('Gudea-Regular.ttf')
+	src: url("Gudea-Regular.ttf")
 }
 
 body {
 background: url('bg5.jpg') repeat;
-font: 1em 'Raleway', 'courier new';
+font-family: 'Raleway', 'sans-serif';
+font-size: 1.1rem;
 }
 
 .main {
@@ -47,7 +48,7 @@ color: #4f6599;
 
 a:link, a:link:active, a:visited, a:visited:active {
 color: #509145;
-font-family: 'Gudea', sans-serif
+font-family: inherit;
 }
 
 a:hover {
@@ -144,10 +145,12 @@ margin: 0 10px 0 0;
 margin: 1em 0 1em 0;
 }
 
-.article_date {
+div.article_date {
 /* color: #4f6599; */
 text-transform: lowercase;
 font-family: 'Gudea', sans-serif;
+margin-top:1em;
+font-size:1.1rem;
 }
 
 div.article_date_text {
@@ -167,10 +170,12 @@ font-family: 'Gudea', sans-serif;
 }
 
 .pbody code.inline {
-	display: inline-block;
+font-family: 'Gudea', sans-serif;
+display: inline-block;
 }
 
 .pbody code {
+font-family: 'Gudea', sans-serif; 
 color: #509145;
 padding-left: 2em;
 display: block;
@@ -179,3 +184,8 @@ border-left: 1px solid #4f6599;
 margin-top: 1em;
 }
 
+span.tag_link {
+font-family: 'Gudea', sans-serif;
+display: inline-block;
+font-size: 1em;
+}
