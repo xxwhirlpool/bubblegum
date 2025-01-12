@@ -8,6 +8,7 @@
 
 <div class="article_date">
 <div class="article_date_text"><%= @article.created_at.strftime('%Y %b %d') %></div> <span class="tag_link">| <%= link_to @article.tag.name, @article.tag %></span>
+<button class="tinylytics_kudos"></button>
 </div>
 
 <div class="pbody"><%== markdown(@article.body) %></div>
