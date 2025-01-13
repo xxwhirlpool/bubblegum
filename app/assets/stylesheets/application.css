@@ -37,6 +37,7 @@ width: 800px;
 min-height: 800px;
 max-height: 10000px;
 margin: auto auto 1em auto;
+font-family: 'Gudea', sans-serif !important;
 padding: 1em;
 text-align:left;
 color: #2c3944 !important;
@@ -48,11 +49,14 @@ color: #4f6599;
 
 a:link, a:link:active, a:visited, a:visited:active {
 color: #509145;
-font-family: inherit;
 }
 
 a:hover {
 text-decoration: none;
+}
+
+.pbody a:link, .pbody a:link:active, .pbody a:visited, .pbody a:visited:active, .pbody a:hover {
+font-family: 'Gudea', sans-serif;
 }
 
 ::selection {
@@ -172,6 +176,14 @@ font-family: 'Gudea', sans-serif;
 .pbody code.inline {
 font-family: 'Gudea', sans-serif;
 display: inline-block;
+margin-top: 0;
+padding-left: 0;
+margin-top: 0;
+border-left: none;
+}
+
+.pbody code.inline::before {
+	content: '> ';
 }
 
 .pbody code {

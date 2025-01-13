@@ -41,6 +41,18 @@
 
 <p><%= link_to "tags", tags_path %> | <a href="/articles.rss">rss</a> | <a href="https://github.com/xxwhirlpool/bubblegum">source</a> | <%= Article.public_count %> total articles </p>
 
+<h4>2025</h4>                                                                                                                                                                             
+
+<ul>                                                                                                                                                                                      
+   <% Article.where(created_at: Date.parse("2025-01-01")..Date.parse("2025-12-31")).reverse.each do |article| %>                                                                           
+     <% unless article.archived? %>                                                                                                                                                        
+       <li>                                                                                                                                                                                
+         <div class="article_date_text"><%= article.created_at.strftime('%Y %b %d') %></div>: <%= link_to article.title, article %>                                                        
+       </li>                                                                                                                                                                               
+     <% end %>                                                                                                                                                                             
+   <% end %>                                                                                                                                                                               
+ </ul>
+
 <h4>2024</h4>
 
 <ul>

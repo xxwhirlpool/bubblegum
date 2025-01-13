@@ -7,14 +7,14 @@
 <% end %>
 
 <div class="article_date">
-<div class="article_date_text"><%= @article.created_at.strftime('%Y %b %d') %></div> <span class="tag_link">| <%= link_to @article.tag.name, @article.tag %></span>
+<div class="article_date_text"><%= @article.created_at.strftime('%Y %b %d') %></div> <span class="tag_link">| <%= link_to @article.tag.name, @article.tag %> |</span>
 <button class="tinylytics_kudos"></button>
 </div>
 
 <div class="pbody"><%== markdown(@article.body) %></div>
 
 <% if user_signed_in? %>
-<p>
+<p class="pbody">
 <%= link_to "edit", edit_article_path(@article) %> |
 <%= link_to "destroy", article_path(@article), data: {
                     turbo_method: :delete,
@@ -26,7 +26,7 @@
 
 <hr>
 
-<p>
+<p class="pbody">
 <%= link_to "home", articles_path %> | <a href="/profiles/1">me</a>
 </p>
 

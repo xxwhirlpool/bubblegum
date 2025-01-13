@@ -15,7 +15,7 @@
 <div class="pbody"><%== @profile.bio %></div>
 
 <% if user_signed_in? %>
-<p>
+<p class="pbody">
   <%= link_to "edit", edit_profile_path(id: current_user) %></li>
 </p>
 <% else %>
@@ -23,7 +23,7 @@
 
 <hr>
 
-<p>
+<p class="pbody">
 <%= link_to "home", articles_path %>
 </p>
 
