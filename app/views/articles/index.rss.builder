@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
     @article.each do |article|
       xml.item do
         xml.title article.title
-        xml.description article.body.to_html.html_safe
+        xml.description markdown(article.body).html_safe
         xml.pubDate article.created_at.to_formatted_s(:rfc822)
         xml.link article_url(article)
         xml.guid article_url(article)

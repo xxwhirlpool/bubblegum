@@ -3,13 +3,18 @@
   <head>
     <title>sweet like bubblegum</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="subject" content="blog">
+    <meta name="description" content="kat's blog">
+    <meta name="language" content="en-US">
+    <meta name="author" content="girl on the moon">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application.css" %>
     <%= favicon_link_tag asset_path("favicon.png") %>
-    <%= auto_discovery_link_tag :rss, articles_url(:format => :rss) %>
+    <%= auto_discovery_link_tag :rss, articles_path(:format => :rss) %>
     <%= javascript_importmap_tags %>
     <script src="https://tinylytics.app/embed/nkLX7dscszfbJdU6pseT.js?kudos=🐬" defer></script> 
 
