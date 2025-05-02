@@ -16,11 +16,14 @@
     <%= favicon_link_tag asset_path("favicon.png") %>
     <%= auto_discovery_link_tag :rss, articles_path(:format => :rss) %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-frappe.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
     <script src="https://tinylytics.app/embed/nkLX7dscszfbJdU6pseT.js?kudos=🐬" defer></script> 
 
   </head>
 
   <body>
+  <script>hljs.highlightAll();</script>
   <%= yield %>
   </body>
 </html>

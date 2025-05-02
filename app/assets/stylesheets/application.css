@@ -174,7 +174,7 @@ font-family: 'Gudea', sans-serif;
 }
 
 .pbody code.inline {
-font-family: 'Gudea', sans-serif;
+font-family: monospace;
 display: inline-block;
 margin-top: 0;
 padding-left: 0;
@@ -187,13 +187,18 @@ border-left: none;
 }
 
 .pbody code {
-font-family: 'Gudea', sans-serif; 
-color: #509145;
-padding-left: 2em;
+font-family: monospace;
 display: block;
 text-align: left;
-border-left: 1px solid #4f6599;
-margin-top: 1em;
+margin: 1em 0;
+padding: 1em;
+display: block;
+background: #303446;
+color: #c6d0f5;
+}
+
+.pbody pre code {
+padding-top: 0 !important;
 }
 
 span.tag_link {

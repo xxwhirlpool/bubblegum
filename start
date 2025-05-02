@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# this is how i start my blog. too lazy for a fuck ass systemd service
+
+started=$(ps -ef | grep puma | grep -v grep | grep -v cluster | grep blog | awk '{print $2}')
+if [ "$started" != "" ]; then
+  echo "stopping old"
+  kill $started
+  sleep 2
+fi
+
+export port=3002
+export RAILS_ENV=production
+
+echo "starting new"
+
+nohup bundle exec rackup config.ru -p 3003 -o 192.168.1.219 > /dev/null 2>&1 &
