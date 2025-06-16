@@ -1,17 +1,30 @@
 <div class="main">
 
-<h1><%= @article.title %></h1>
+<header>
+	<h1><%= @article.title %></h1>
+</header>
+
+<%= render "navbar" %>
 
 <% if @article.icon.attached? %>
     <%= image_tag url_for(@article.icon) %>
 <% end %>
 
 <div class="article_date">
-<div class="article_date_text"><%= @article.created_at.strftime('%Y %b %d') %></div> <span class="tag_link">| <%= link_to @article.tag.name, @article.tag %> |</span>
-<button class="tinylytics_kudos"></button>
+<p>
+	<div class="article_date_text">
+		<time <% tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
+	</div>
+	<span class="tag_link">| <%= link_to @article.tag.name, @article.tag %> |</span>
+	<button class="tinylytics_kudos"></button>
+</p>
 </div>
 
-<div class="pbody"><%== markdown(@article.body) %></div>
+<div class="pbody">
+	<article>
+		<%== markdown(@article.body) %>
+	</article>
+</div>
 
 <% if user_signed_in? %>
 <p class="pbody">
@@ -23,11 +36,5 @@
 </p>
 <% else %>
 <% end %>
-
-<hr>
-
-<p class="pbody">
-<%= link_to "home", articles_path %> | <a href="/profiles/1">me</a>
-</p>
 
 </div>

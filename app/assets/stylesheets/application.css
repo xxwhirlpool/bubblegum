@@ -176,14 +176,11 @@ font-family: 'Gudea', sans-serif;
 .pbody code.inline {
 font-family: monospace;
 display: inline-block;
-margin-top: 0;
-padding-left: 0;
-margin-top: 0;
+padding: 0;
+margin: 0;
+background: transparent;
+color: #4f6599;
 border-left: none;
-}
-
-.pbody code.inline::before {
-	content: '> ';
 }
 
 .pbody code {
@@ -199,10 +196,37 @@ color: #c6d0f5;
 
 .pbody pre code {
 padding-top: 0 !important;
+white-space: preserve;
+}
+
+.pbody blockquote {
+margin-left: 1.5rem;
+border-left: 1px solid #4f6599;
+padding-left: 1rem;
 }
 
 span.tag_link {
 font-family: 'Gudea', sans-serif;
 display: inline-block;
 font-size: 1em;
+}
+
+span.tag_link a::before {
+content: "#";
+}
+
+nav ul.navbar-list li {
+  display: inline;
+}
+
+nav ul.navbar-list li::before {
+	margin: initial;
+}
+
+header h1 {
+  margin-bottom: .5rem;
+}
+
+nav ul.navbar-list {
+  padding-top: top: 0;
 }
