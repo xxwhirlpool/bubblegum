@@ -1,5 +1,8 @@
 class Article < ApplicationRecord
   has_many :profiles, through: :users
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
   
   include Visible
 
