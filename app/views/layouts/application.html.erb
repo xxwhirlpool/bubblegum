@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>sweet like bubblegum</title>
+    <title>
+    	<% if defined?(@article.title) %>
+    		<%= @article.title %>
+   		<% else %>
+  			<% if defined?(@tag.name) %>
+  				<%= @tag.name %>
+			<% else %>
+	    	sweet like bubblegum
+    	<% end %>
+    	<% end %>
+   	</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="subject" content="blog">
     <meta name="description" content="we're gonna fly away">
