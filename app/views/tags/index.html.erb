@@ -1,6 +1,10 @@
 <div class="main">
 
-<h1>🐬 tags</h1>
+<header>
+	<h1>🐬 tags</h1>
+</header>
+
+<%= render "articles/navbar" %>
 
 <ul>
   <% @tag.each do |tag| %>
@@ -11,9 +15,5 @@
 </ul>
 
 <hr>
-
-<p>
-<%= link_to "home", articles_path %>
-</p>
 
 </div>
