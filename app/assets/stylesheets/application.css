@@ -49,6 +49,7 @@ h1,h2,h3,h4,h5, strong {
 
 a:link, a:link:active, a:visited, a:visited:active {
 	color: #509145;
+	text-underline-offset: 4px;
 }
 
 a:hover {
@@ -205,6 +206,7 @@ span.tag_link {
 	font-family: 'Gudea', sans-serif;
 	display: inline-block;
 	font-size: 1em;
+	text-underline-offset: 4px;
 }
 
 span.tag_link a::before {
