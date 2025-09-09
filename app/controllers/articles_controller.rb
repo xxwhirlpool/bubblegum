@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
-
+   
   def index
     @article = Article.all
     @tags = Tag.all
@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+     himg_config(width: 720, height: 405, disable_fetch: false, base_url: "file:///home/kat/rubytest/blog/")
     @article = Article.friendly.find(params[:id])
   end
 

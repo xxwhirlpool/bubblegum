@@ -17,6 +17,11 @@
     <meta name="description" content="we're gonna fly away">
     <meta name="language" content="en-US">
     <meta name="author" content="girl on the moon">
+
+    <meta property="og:title" content="<% if defined?(@article.title) %> <%= @article.title %> <% end %>">
+    <meta property="og:description" content="we're gonna fly away">
+    <meta property="og:image" content="<% if defined?(@article.slug) %> <%= article_path(@article.slug, format: :png) %> <% end %>">
+    
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

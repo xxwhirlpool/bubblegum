@@ -11,7 +11,8 @@ fi
 
 export port=3002
 export RAILS_ENV=production
+export BASE_URL="https://bubblegum.girlonthemoon.xyz"
 
 echo "starting new"
 
-nohup bundle exec rackup config.ru -p 3003 -o 192.168.1.219 > /dev/null 2>&1 &
+nohup bundle exec rackup config.ru -p 3003 -o 192.168.1.219 > log/production.log 2>&1 &

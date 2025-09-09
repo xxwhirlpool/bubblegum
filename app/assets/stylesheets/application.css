@@ -176,7 +176,7 @@ div.article_date_text {
 	background: transparent;
 	color: #4f6599;
 	border-left: none;
-	font-size: small;
+	font-size: 1rem;
 }
 
 .pbody code {
@@ -188,11 +188,11 @@ div.article_date_text {
 	display: block;
 	background: #303446;
 	color: #c6d0f5;
-	font-size: small;
+	font-size: 1rem;
 }
 
 .pbody pre code {
-	padding-top: 0 !important;
+	/* padding-top: 0 !important; */
 	white-space: preserve;
 }
 

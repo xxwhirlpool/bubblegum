@@ -116,6 +116,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    himg (0.0.12-x86_64-linux)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -276,6 +277,7 @@ DEPENDENCIES
   debug
   devise
   friendly_id (~> 5.5.0)
+  himg (~> 0.0.12)
   importmap-rails
   jbuilder
   paperclip (~> 5.1.0)

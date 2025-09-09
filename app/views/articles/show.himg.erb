@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+    	@import url(https://fonts.bunny.net/css?family=gudea:400|raleway:300);
+
+		html {
+			margin: 0;
+			padding: 0;
+		}
+    	
+		body {
+			font-family: 'Gudea', 'sans-serif';
+			font-size: 1.1rem;
+			padding: 1em;
+			background: #e8effc;
+			color: #4f6599;
+		}
+		
+		h1 {
+			color: #4f6599;
+			font-size: 2.5rem;
+			margin: 0 0 .5rem 0 !important;
+			padding: 0 !important;
+		}
+
+		img {
+			margin-right: 15px;
+			width: 100px !important;
+			height: 100px !important;
+		}
+
+		p {
+			font-size: 1.2rem;
+		}
+
+		.himg-tag {
+			color: #509145;
+		}
+
+		.himg-tag::before {
+			content: "#";
+		}
+
+		.himg-link {
+			color: #509145;
+			font-size: .99rem;
+		}
+    </style>
+</head>
+
+<body>
+
+	<h1><%= @article.title %></h1>
+
+	<%= image_tag ActiveStorage::Blob.service.path_for(@article.icon.key) %>
+	
+	<p><%= @article.created_at.strftime('%Y %b %d') %>, <span class="himg-tag"><%= @article.tag.name %></span></p>
+
+</body>
+
+</html>
