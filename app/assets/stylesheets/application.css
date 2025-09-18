@@ -21,6 +21,7 @@
 :root {
 	--font-main: "Gudea", sans-serif;
 	--font-accent: "Raleway", sans-serif;
+	--font-monospace: "JetBrains Mono", monospace;
 	--main-color: #4f6599; /* dark blue */
 	--main-color-darker: #e8effc; /* darker blue */
 	--main-color-darkest: #303446; /* darkest blue purple-ish */
