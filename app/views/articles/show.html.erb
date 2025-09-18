@@ -10,15 +10,12 @@
     <%= image_tag url_for(@article.icon) %>
 <% end %>
 
-<div class="article_date">
 <p>
 	<div class="article_date_text">
-		<time <% tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
+		<time <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
 	</div>
-	<span class="tag_link">| <%= link_to @article.tag.name, @article.tag %> |</span>
-	<button class="tinylytics_kudos"></button>
+	<span class="tag_link"><span aria-hidden="true">|</span> <%= link_to @article.tag.name, @article.tag %></span>
 </p>
-</div>
 
 <div class="pbody">
 	<article>

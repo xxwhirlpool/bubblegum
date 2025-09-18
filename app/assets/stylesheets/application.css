@@ -1,3 +1,7 @@
+@import url(https://fonts.bunny.net/css?family=jetbrains-mono:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i);
+@import url(https://fonts.bunny.net/css?family=raleway:400);
+@import url(https://fonts.bunny.net/css?family=gudea:400);
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,17 +17,6 @@
  *= require_tree .
  *= require_self
  */
- 
- @font-face {
-	font-family: 'Raleway';
-	font-weight: 400;
-	src: url("Raleway-VariableFont_wght.ttf");
-}
-
-@font-face {
-	font-family: 'Gudea';
-	src: url("Gudea-Regular.ttf")
-}
 
 body {
 	background: url('bg5.jpg') repeat;
@@ -227,4 +220,69 @@ header h1 {
 
 nav ul.navbar-list {
 	padding-top: top: 0;
+}
+
+/* HTML comment box */
+
+#HCB_comment_box {
+	font-family: "Gudea", sans-serif !important;
+	color: #4f6599 !important;
+	font-weight: normal !important;
+}
+
+#HCB_comment_box .hcb-comment-tb button, #HCB_comment_box b.author-name {
+	color: #4f6599 !important;
+	font-weight: bolder !important;
+}
+
+#HCB_comment_box .hcb-comment-tb button {
+	border: 0 !important;
+	text-transform: uppercase !important;
+	font-weight: bold !important;
+	font-family: "Gudea", sans-serif !important;
+	color: #509145 !important;
+}
+
+#HCB_comment_box #hcb_form textarea, #HCB_comment_box #hcb_form #hcb_form_name {
+	font-family: "Gudea", sans-serif !important;
+	font-size: 1.1rem !important;
+}
+
+#HCB_comment_box .hcb-comment-body {
+	font-size: 1.1rem !important;
+	color: #2c3944 !important;
+}
+
+#HCB_comment_box #hcb_form .btn, #HCB_comment_box #HCB_comment_form_box .btn {
+	font-family: "Gudea", sans-serif !important;
+	border: 0 !important;
+	background-color: #509145 !important;
+	font-size: 1.1rem !important;;
+	margin-top: .8rem !important;
+}
+
+#HCB_comment_box #hcb_form .btn:active, #HCB_comment_box #HCB_comment_form_box .btn:active {
+	transform: scale(95%) !important;
+}
+
+#HCB_comment_box #hcb_form .home-desc, #HCB_comment_box .hcb-icon, #HCB_comment_box #hcb_msg {
+	display: none !important;
+}
+
+#HCB_comment_box #HCB_comment_form_box {
+	padding-bottom: 0 !important;
+}
+
+#HCB_comment_box h3 {
+	margin-bottom: .8rem !important;
+	margin-top: 0 !important;
+	font-size: 1.5rem !important;
+}
+
+#HCB_comment_box .comment {
+	margin-bottom: 1em !important;
+}
+
+#HCB_comment_box .date {
+	color: #509145 !important;
 }

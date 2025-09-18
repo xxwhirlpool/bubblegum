@@ -19,9 +19,10 @@
     <meta name="author" content="girl on the moon">
 
     <meta property="og:title" content="<% if defined?(@article.title) %> <%= @article.title %> <% end %>">
-    <meta property="og:description" content="we're gonna fly away">
-    <meta property="og:image" content="<% if defined?(@article.slug) %> <%= article_path(@article.slug, format: :png) %> <% end %>">
-    
+    <meta property="og:description" content="<% if defined?(@article.body) %> <%= truncate(@article.body, length: 27, separator: /\s/) %> <% end %>">
+    <meta property="og:image" content="<% if defined?(@article.slug) %> <%= article_url(@article.slug, format: :png) %> <% end %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<% if defined?(@article.slug) %> <%= article_url(@article.slug) %> <% end %>">
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -31,12 +32,9 @@
     <%= favicon_link_tag asset_path("favicon.png") %>
     <%= auto_discovery_link_tag :rss, articles_path(:format => :rss) %>
     <%= javascript_importmap_tags %>
+    
     <link rel="stylesheet" href="https://unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-frappe.css">
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
-    <script src="https://tinylytics.app/embed/nkLX7dscszfbJdU6pseT.js?kudos=🐬" defer></script> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 
   </head>
 
