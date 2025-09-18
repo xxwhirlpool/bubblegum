@@ -18,9 +18,20 @@
  *= require_self
  */
 
+:root {
+	--font-main: "Gudea", sans-serif;
+	--font-accent: "Raleway", sans-serif;
+	--main-color: #4f6599; /* dark blue */
+	--main-color-darker: #e8effc; /* darker blue */
+	--main-color-darkest: #303446; /* darkest blue purple-ish */
+	--accent-color: #509145; /* green */
+	--text-color: #2c3944; /* dark */
+	--text-color-code: #c6d0f5; /* gray-ish */
+}
+
 body {
 	background: url('bg5.jpg') repeat;
-	font-family: 'Raleway', 'sans-serif';
+	font-family: var(--font-accent);
 	font-size: 1.1rem;
 }
 
@@ -30,18 +41,18 @@ body {
 	min-height: 800px;
 	max-height: 10000px;
 	margin: auto auto 1em auto;
-	font-family: 'Gudea', sans-serif !important;
+	font-family: var(--font-main) !important;
 	padding: 1em;
 	text-align:left;
-	color: #2c3944 !important;
+	color: var(--text-color) !important;
 }
 
 h1,h2,h3,h4,h5, strong {
-	color: #4f6599;
+	color: var(--main-color);
 }
 
 a:link, a:link:active, a:visited, a:visited:active {
-	color: #509145;
+	color: var(--accent-color);
 	text-underline-offset: 4px;
 }
 
@@ -50,12 +61,12 @@ a:hover {
 }
 
 .pbody a:link, .pbody a:link:active, .pbody a:visited, .pbody a:visited:active, .pbody a:hover {
-	font-family: 'Gudea', sans-serif;
+	font-family: var(--font-main);
 }
 
 ::selection {
-	background: #4f6599;
-	color: #e8effc;
+	background: var(--main-color);
+	color: var(--main-color-darker);
 }
 
 ul {
@@ -74,12 +85,12 @@ li:before {
 }
 
 p.profile_list {
-	color: #4f6599;
+	color: var(--main-color);
 	text-align:center;
 }
 
 ul.profile_list {
-	color: #4f6599;
+	color: var(--main-color);
 }
 
 .profile_list li::before {
@@ -98,7 +109,7 @@ ul.profile_list {
 }
 
 hr {
-	border-top: 1px solid #4f6599;
+	border-top: 1px solid var(--main-color);
 	border-bottom: none;
 	margin: 1.5em 0 1.5em 0;
 }
@@ -108,7 +119,7 @@ hr::after {
 	display: inline-block;
 	position: absolute;
 	left: 50%;
-	background: #e8effc;
+	background: var(--main-color-darker);
 	padding: 1rem;
 	transform: translate(-50%, -50%);
 	transform-origin: 50% 50%;
@@ -141,46 +152,46 @@ hr::after {
 
 div.article_date {
 	/* color: #4f6599; */
-	font-family: 'Gudea', sans-serif;
-	margin-top:1em;
-	font-size:1.1rem;
+	font-family: var(--font-main);
+	margin-top: 1em;
+	font-size: 1.1rem;
 }
 
 div.article_date_text {
-	color: #4f6599;
+	color: var(--main-color);
 	display: inline-block;
-	font-family: 'Gudea', sans-serif;
+	font-family: var(--font-main);
 }
 
 .pbody p {
-	font-family: 'Gudea', sans-serif;
+	font-family: var(--font-main);
 	line-height: 1.5em;
 }
 
 .pbody li {
-	font-family: 'Gudea', sans-serif;
+	font-family: var(--font-main);
 }
 
 .pbody code.inline {
-	font-family: "JetBrains Mono", monospace;
+	font-family: var(--font-monospace);
 	display: inline-block;
 	padding: 0;
 	margin: 0;
 	background: transparent;
-	color: #4f6599;
+	color: var(--main-color);
 	border-left: none;
 	font-size: 1rem;
 }
 
 .pbody code {
-	font-family: "JetBrains Mono", monospace;
+	font-family: var(--font-monospace);
 	display: block;
 	text-align: left;
 	margin: 1em 0;
 	padding: 1em;
 	display: block;
-	background: #303446;
-	color: #c6d0f5;
+	background: var(--main-color-darkest);
+	color: var(--text-color-code);
 	font-size: 1rem;
 }
 
@@ -191,12 +202,12 @@ div.article_date_text {
 
 .pbody blockquote {
 	margin-left: 1.5rem;
-	border-left: 1px solid #4f6599;
+	border-left: 1px solid var(--main-color);
 	padding-left: 1rem;
 }
 
 span.tag_link {
-	font-family: 'Gudea', sans-serif;
+	font-family: var(--font-main);
 	display: inline-block;
 	font-size: 1em;
 	text-underline-offset: 4px;
@@ -222,16 +233,32 @@ nav ul.navbar-list {
 	padding-top: top: 0;
 }
 
+button {
+	font-family: var(--font-main);
+	background-color: var(--accent-color);
+	color: white;
+	text-decoration: none;
+	text-shadow: none;
+	box-shadow: none;
+	font-size: 1.1rem;
+	padding: .3em;
+	font-weight: 500;
+	border-radius: 0;
+	border: 0 !important;
+	outline: 0 !important;
+	width: fit-content;
+}
+
 /* HTML comment box */
 
 #HCB_comment_box {
-	font-family: "Gudea", sans-serif !important;
-	color: #4f6599 !important;
+	font-family: var(--font-main) !important;
+	color: var(--main-color) !important;
 	font-weight: normal !important;
 }
 
 #HCB_comment_box .hcb-comment-tb button, #HCB_comment_box b.author-name {
-	color: #4f6599 !important;
+	color: var(--main-color) !important;
 	font-weight: bolder !important;
 }
 
@@ -239,24 +266,24 @@ nav ul.navbar-list {
 	border: 0 !important;
 	text-transform: uppercase !important;
 	font-weight: bold !important;
-	font-family: "Gudea", sans-serif !important;
-	color: #509145 !important;
+	font-family: var(--font-main) !important;
+	color: var(--accent-color) !important;
 }
 
 #HCB_comment_box #hcb_form textarea, #HCB_comment_box #hcb_form #hcb_form_name {
-	font-family: "Gudea", sans-serif !important;
+	font-family: var(--font-main) !important;
 	font-size: 1.1rem !important;
 }
 
 #HCB_comment_box .hcb-comment-body {
 	font-size: 1.1rem !important;
-	color: #2c3944 !important;
+	color: var(--text-color) !important;
 }
 
 #HCB_comment_box #hcb_form .btn, #HCB_comment_box #HCB_comment_form_box .btn {
-	font-family: "Gudea", sans-serif !important;
+	font-family: var(--font-main) !important;
 	border: 0 !important;
-	background-color: #509145 !important;
+	background-color: var(--accent-color) !important;
 	font-size: 1.1rem !important;
 	margin-top: .8rem !important;
 	border-radius: 0 !important;
@@ -287,5 +314,5 @@ nav ul.navbar-list {
 }
 
 #HCB_comment_box .date {
-	color: #509145 !important;
+	color: var(--accent-color) !important;
 }
