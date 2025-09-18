@@ -47,6 +47,10 @@
 			color: #509145;
 			font-size: .99rem;
 		}
+
+		.himg-postbody {
+			color: #2c3944 !important;
+		}
     </style>
 </head>
 
@@ -56,7 +60,9 @@
 
 	<%= image_tag ActiveStorage::Blob.service.path_for(@article.icon.key) %>
 	
-	<p><%= @article.created_at.strftime('%Y %b %d') %>, <span class="himg-tag"><%= @article.tag.name %></span></p>
+	<p><%= @article.created_at.strftime('%Y %b %d') %> | <span class="himg-tag"><%= @article.tag.name %></span></p>
+
+	<p class="himg-postbody"><%= truncate(strip_tags(markdown(@article.body)), length: 65, separator: /\s/) %></p>
 
 </body>
 

@@ -257,8 +257,11 @@ nav ul.navbar-list {
 	font-family: "Gudea", sans-serif !important;
 	border: 0 !important;
 	background-color: #509145 !important;
-	font-size: 1.1rem !important;;
+	font-size: 1.1rem !important;
 	margin-top: .8rem !important;
+	border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
 }
 
 #HCB_comment_box #hcb_form .btn:active, #HCB_comment_box #HCB_comment_form_box .btn:active {
