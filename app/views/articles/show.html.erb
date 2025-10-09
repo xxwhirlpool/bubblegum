@@ -12,7 +12,7 @@
 
 <p>
 	<div class="article_date_text">
-		<time <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
+		<time class="article_time" <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
 	</div>
 	<span class="tag_link"><span aria-hidden="true">|</span> <%= link_to @article.tag.name, @article.tag %></span>
 </p>

@@ -70,6 +70,26 @@ a:hover {
 	color: var(--main-color-darker);
 }
 
+dl {
+	display: grid;
+	grid-template-columns: 15ch auto;
+	column-gap: 0;
+}
+
+dt {
+	grid-column-start: 1;
+	margin-bottom: .5em;
+}
+
+dt:before {
+	content: "○";
+	margin: 0 10px 0 0;
+}
+
+dd {
+	grid-column-start: 2;
+}
+
 ul {
 	padding: 0;
 	margin-top: .5em;
@@ -151,16 +171,19 @@ hr::after {
 	margin: 1em 0 1em 0;
 }
 
-div.article_date {
+div.article_date, time {
 	/* color: #4f6599; */
 	font-family: var(--font-main);
 	margin-top: 1em;
 	font-size: 1.1rem;
 }
 
-div.article_date_text {
+div.article_date_text:has(time.article_time) {
+	display: inline;
+}
+
+div.article_date_text, time {
 	color: var(--main-color);
-	display: inline-block;
 	font-family: var(--font-main);
 }
 
@@ -202,9 +225,9 @@ div.article_date_text {
 }
 
 .pbody blockquote {
-	margin-left: 1.5rem;
-	border-left: 1px solid var(--main-color);
-	padding-left: 1rem;
+	padding-inline-start: 1em;
+	border-inline-start: 1px solid var(--main-color);
+	margin-left: 1rem;
 }
 
 span.tag_link {
@@ -248,6 +271,78 @@ button {
 	border: 0 !important;
 	outline: 0 !important;
 	width: fit-content;
+}
+
+label {
+	display: unset !important;
+	margin-inline-start: 0;
+	font-weight: bold;
+	color: var(--accent-color);
+	font-family: var(--font-accent);
+	font-size: 1.1em;
+	text-transform: lowercase;
+}
+
+label ~ input, label ~ select {
+	display: block;
+	margin: .8em 0 .8em 0;
+}
+
+label[for="article_title"] {
+	display: block;
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+}
+
+label[for="article_body"] {
+	display: block !important;
+}
+
+textarea:not([rows]) {
+	min-height: 10em
+}
+
+textarea {
+	min-width: 50ch;
+	min-height: 50ch;
+	margin: .8em .8em .8em 0;
+}
+
+input {
+	text-transform: lowercase;
+}
+
+input[type="submit"] {
+	margin: .5em 0 .5em 0;
+	font-family: var(--font-main);
+	background-color: var(--accent-color);
+	color: white;
+	text-decoration: none;
+	text-shadow: none;
+	box-shadow: none;
+	font-size: 1.1rem;
+	padding: .3em;
+	font-weight: 500;
+	border-radius: 0;
+	border: 0 !important;
+	outline: 0 !important;
+	width: fit-content;
+}
+
+input, button,
+textarea, select {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: 1.1;
+}
+
+button, select {
+	margin: .5rem 0 .8rem 0;
+}
+
+.test2 select, .test2 button {
+	margin: 0 !important;
 }
 
 /* HTML comment box */

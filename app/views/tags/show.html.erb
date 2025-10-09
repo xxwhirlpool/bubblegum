@@ -6,13 +6,16 @@
 
 <%= render "articles/navbar" %>
 
-<ul>
+<dl>
   <% @tag.articles.reverse.each do |article| %>
-    <li>
-      <div class="article_date_text"><%= article.created_at.strftime('%Y %b %d') %></div>: <%= link_to article.title, article_path(article) %>
-    </li>
+    <dt>
+  		<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
+  	</dt>
+	<dd>
+      <%= link_to article.title, article_path(article) %>
+    </dd>
   <% end %>
-</ul>
+</dl>
 
 
 <p>

@@ -1,6 +1,6 @@
 <%= form_with model: article do |form| %>
   <div>
-    <%= form.label :title %><br>
+    <%= form.label :title %>
     <%= form.text_field :title %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
@@ -8,25 +8,25 @@
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body, style: "width: 100%; height: 50vh;", rows: 8 %><br>
+    <%= form.label :body %>
+    <%= form.text_area :body, rows: 8 %>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
   
   <div>
-  <%= form.label :status %><br>
+  <%= form.label :status %>
   <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
 </div>
 
   <div>
-    <%= form.label :icon %><br />
+    <%= form.label :icon %>
     <%= form.file_field :icon %>
   </div>
 
   <div>
-    <%= form.label :tags %><br>
+    <%= form.label :tags %>
     <%= form.collection_select :tag_id, Tag.all, :id, :name %>
   </div>
 

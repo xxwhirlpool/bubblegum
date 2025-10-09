@@ -13,7 +13,7 @@
 <div class="test2">
 <% if user_signed_in? %>
  <div> welcome <%= current_user.email %> </div> 
-  <%= button_to "log out", destroy_user_session_path, method: :delete, style: 'margin-left: .5em' %> 
+  <%= button_to "log out", destroy_user_session_path, method: :delete, style: 'margin-left: .5em !important' %> 
 <% else %>
  <div> i'm kat! </div>
   <%= button_to "log in if you're me", new_user_session_path, style: 'margin-left: .5em' %> 
@@ -41,28 +41,35 @@
 
 <p><%= link_to "tags", tags_path %> | <a href="https://subscribeopenly.net/subscribe/?url=https%3A%2F%2Fbubblegum.girlonthemoon.xyz%2Farticles.rss">feed</a> | <a href="https://bytes.4-walls.net/kat/bubblegum">source</a> | <%= Article.public_count %> total posts </p>
 
-<h4>2025</h4>                                                                                                                                                                             
+<h4>2025</h4>
 
-<ul>                                                                                                                                                                                      
-   <% Article.where(created_at: Date.parse("2025-01-01")..Date.parse("2025-12-31")).reverse.each do |article| %>                                                                           
-     <% unless article.archived? %>                                                                                                                                                        
-       <li>                                                                                                                                                                                
-         <div class="article_date_text"><%= article.created_at.strftime('%Y %b %d') %></div>: <%= link_to article.title, article %>                                                        
-       </li>                                                                                                                                                                               
-     <% end %>                                                                                                                                                                             
-   <% end %>                                                                                                                                                                               
- </ul>
+<dl>
+   <% Article.where(created_at: Date.parse("2025-01-01")..Date.parse("2025-12-31")).reverse.each do |article| %>        
+     <% unless article.archived? %>
+       <dt>
+       		<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
+       </dt>
+       <dd>
+         <%= link_to article.title, article %>                                                        
+       </dd>
+
+     <% end %>
+   <% end %>                        
+ </dl>
 
 <h4>2024</h4>
 
-<ul>
+<dl>
   <% Article.where(created_at: Date.parse("2024-01-01")..Date.parse("2024-12-31")).reverse.each do |article| %>
     <% unless article.archived? %>
-      <li>
-        <div class="article_date_text"><%= article.created_at.strftime('%Y %b %d') %></div>: <%= link_to article.title, article %>
-      </li>
+      <dt>
+     	 <time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
+      </dt>
+	  <dd>
+         <%= link_to article.title, article %>
+      </dd>
     <% end %>
   <% end %>
-</ul>
+</dl>
 
 </div>
