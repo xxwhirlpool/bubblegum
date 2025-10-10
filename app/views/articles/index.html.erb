@@ -12,11 +12,11 @@
 
 <div class="test2">
 <% if user_signed_in? %>
- <div> welcome <%= current_user.email %> </div> 
+ <div> welcome, <%= current_user.email %>! </div> 
   <%= button_to "log out", destroy_user_session_path, method: :delete, style: 'margin-left: .5em !important' %> 
 <% else %>
  <div> i'm kat! </div>
-  <%= button_to "log in if you're me", new_user_session_path, style: 'margin-left: .5em' %> 
+  <%= button_to "log in if you're me", new_user_session_path, style: 'margin-left: .5em !important' %> 
 <% end %>
 </div>
 
@@ -71,5 +71,7 @@
     <% end %>
   <% end %>
 </dl>
+
+<%= render "articles/hcard" %>
 
 </div>
