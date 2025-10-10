@@ -1,7 +1,7 @@
-<div class="main">
+<div class="main h-entry">
 
 <header>
-	<h1><%= @article.title %></h1>
+	<h1 class="p-name"><%= @article.title %></h1>
 </header>
 
 <%= render "navbar" %>
@@ -12,9 +12,9 @@
 
 <p>
 	<div class="article_date_text">
-		<time class="article_time" <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
+		<time class="article_time dt-published" <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
 	</div>
-	<span class="tag_link"><span aria-hidden="true">|</span> <%= link_to @article.tag.name, @article.tag %></span>
+	<span class="tag_link"><span aria-hidden="true">|</span> <%= link_to @article.tag.name, @article.tag, class: "p-category" %></span>
 </p>
 
 <div class="pbody">

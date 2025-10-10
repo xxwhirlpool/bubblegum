@@ -1,6 +1,9 @@
 <div class="main">
 
-<h1>🐬 sweet like bubblegum</h1>
+<hgroup>
+	<h1 style="margin-bottom:.5rem;">🐬 <span class="p-name">sweet like bubblegum</span></h1>
+	<p style="font-size:.9rem;margin-top:0;"><i>broadcasted by <a class="p-author" href="https://girlonthemoon.xyz/">kat</a> from the moon</i></p>
+</hgroup>
 
 <div class="profile">
 
@@ -43,14 +46,14 @@
 
 <h4>2025</h4>
 
-<dl>
+<dl class="h-feed hfeed">
    <% Article.where(created_at: Date.parse("2025-01-01")..Date.parse("2025-12-31")).reverse.each do |article| %>        
      <% unless article.archived? %>
        <dt>
        		<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
        </dt>
-       <dd>
-         <%= link_to article.title, article %>                                                        
+       <dd class="h-entry">
+         <%= link_to article.title, article, class: "u-url p-name" %>                                                        
        </dd>
 
      <% end %>
@@ -59,14 +62,14 @@
 
 <h4>2024</h4>
 
-<dl>
+<dl class="h-feed hfeed">
   <% Article.where(created_at: Date.parse("2024-01-01")..Date.parse("2024-12-31")).reverse.each do |article| %>
     <% unless article.archived? %>
       <dt>
      	 <time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
       </dt>
-	  <dd>
-         <%= link_to article.title, article %>
+	  <dd class="h-entry">
+         <%= link_to article.title, article, class: "u-url p-name" %>
       </dd>
     <% end %>
   <% end %>
