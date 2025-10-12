@@ -1,6 +1,10 @@
 <div class="main">
 
-<h1>🐬 sweet like bubblegum</h1>
+<header>
+	<h1>🐬 sweet like bubblegum</h1>
+</header>
+
+<%= render "articles/navbar" %>
 
 <div class="pfp"><%= render @profile %></div>
 
@@ -15,16 +19,11 @@
 <div class="pbody"><%== @profile.bio %></div>
 
 <% if user_signed_in? %>
+<hr>
 <p class="pbody">
   <%= link_to "edit", edit_profile_path(id: current_user) %></li>
 </p>
 <% else %>
 <% end %>
-
-<hr>
-
-<p class="pbody">
-<%= link_to "home", articles_path %>
-</p>
 
 </div>

@@ -1,0 +1,16 @@
+<form id="webmention-form" action="https://webmention.io/bubblegum.girlonthemoon.xyz/webmention" method="POST" onsubmit="return buttonHit()">
+  <label for="webmention-form" style="font-size:1em;">send me a webmention!</label>
+
+  <input id="webmention-source" type="url" autocomplete="url" required="" pattern="^https?:\/\/(.*)" name="source" placeholder="paste the link to your post here!" class="error" aria-invalid="true" style="width:40ch;" />
+
+  <input id="webmention-submit" type="submit" name="submit" value="ping me!" />
+
+  <input id="webmention-format" type="hidden" name="format" value="html" />
+  <input id="webmention-target" type="hidden" name="target" value="<%= article_url(@article.slug) %>" />
+</form>
+
+<script>
+function buttonHit() {
+	return alert("thank you for the ping!");
+}
+</script>

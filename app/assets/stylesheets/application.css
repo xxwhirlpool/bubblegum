@@ -90,6 +90,10 @@ dd {
 	grid-column-start: 2;
 }
 
+.pbody ul {
+	padding-inline-start: 1.5em;
+}
+
 ul {
 	padding: 0;
 	margin-top: .5em;
@@ -249,12 +253,30 @@ nav ul.navbar-list li::before {
 	margin: initial;
 }
 
-header h1 {
-	margin-bottom: .5rem;
-}
-
 nav ul.navbar-list {
 	padding-top: top: 0;
+}
+
+ul.inline-list {
+	padding-inline-start: 0 !important;
+}
+
+ul.inline-list li {
+	display: inline;
+}
+
+ul.inline-list li:before {
+	content: "○";
+	margin: 0 5px 0 0;
+}
+
+ul.inline-list li:first-child:before {
+	content: "";
+	margin: 0 !important;
+}
+
+header h1 {
+	margin-bottom: .5rem;
 }
 
 button {
@@ -369,6 +391,10 @@ button, select {
 #HCB_comment_box #hcb_form textarea, #HCB_comment_box #hcb_form #hcb_form_name {
 	font-family: var(--font-main) !important;
 	font-size: 1.1rem !important;
+}
+
+#HCB_comment_box #hcb_form textarea {
+	min-height: 5em !important;
 }
 
 #HCB_comment_box .hcb-comment-body {
