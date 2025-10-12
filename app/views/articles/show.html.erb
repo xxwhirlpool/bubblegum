@@ -43,13 +43,14 @@
 <hr>
 
 <div id="webmentions_bbgm">
-	<h3 id="webmentions">webmentions</h3>
-
-	<%= render "articles/wbmnform" %>
+	<h3 id="webmentions" style="margin-bottom:.5rem;">webmentions</h3>
 	
 	<script type="module" src="https://esm.run/seia" async></script>
 
-	<s-e-i-a css="[text='sm']{display:none!important}[rounded~='avatar']{border-radius:0!important}[p-4=""]{padding:0!important}[transition='']{transition-property:none!important;transition-timing-function:none!important;transition-duration:0!important}[space-x~='reverse'] > :not([hidden]) ~ :not([hidden]){--un-space-x-reverse:-0.5!important};"></s-e-i-a>
+	<s-e-i-a css="[text='sm']{display:none!important}[rounded~='avatar']{border-radius:0!important}[p-4='']{padding:.5rem 0 .8rem .8rem!important;}[transition='']{transition-property:none!important;transition-timing-function:none!important;transition-duration:0!important}[space-x~='reverse'] > :not([hidden]) ~ :not([hidden]){--un-space-x-reverse:-0.5!important;}[bg~='seia-bg']{background:transparent!important;}"></s-e-i-a>
+
+	<%= render "articles/wbmnform" %>
+	
 </div>
 
 <%= render "articles/hcard" %>
