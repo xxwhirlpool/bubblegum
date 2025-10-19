@@ -14,7 +14,15 @@
 	<div class="article_date_text">
 		<time class="article_time dt-published" <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
 	</div>
-	<span class="tag_link"><span aria-hidden="true">|</span> <%= link_to @article.tag.name, @article.tag, class: "p-category" %></span>
+	<span class="tag_link">
+		<span aria-hidden="true">|</span>
+		<%= link_to @article.tag.name, @article.tag, class: "p-category" %>
+		<span aria-hidden="true">|</span>
+		<span style="color:var(--main-color);">
+			<%= @article.body.scan(/\w+/).size %> words
+		</span>
+	</span> 
+	
 </p>
 
 <div class="pbody">
