@@ -19,7 +19,7 @@
 		<%= link_to @article.tag.name, @article.tag, class: "p-category" %>
 		<span aria-hidden="true">|</span>
 		<span style="color:var(--main-color);">
-			<%= @article.body.scan(/\w+/).size %> words
+			<%= @article.body.scan(/[\p{Alpha}\-']+/).size %> words
 		</span>
 	</span> 
 	
