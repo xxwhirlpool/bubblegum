@@ -1,9 +1,10 @@
 <div class="main">
 
-<hgroup>
+<header>
 	<h1 style="margin-bottom:.5rem;">🐬 <span class="p-name">sweet like bubblegum</span></h1>
-	<p style="font-size:.9rem;margin-top:0;"><i>broadcasted by <a class="p-author" href="https://girlonthemoon.xyz/">kat</a> from the moon</i></p>
-</hgroup>
+</header>
+
+<%= render "navbar" %>
 
 <div class="profile">
 
@@ -15,7 +16,7 @@
 
 <div class="test2">
 <% if user_signed_in? %>
- <div> welcome, <%= current_user.email %>! </div> 
+ <div> welcome, <span style="color:var(--main-color);"><%= current_user.email %></span>! </div> 
   <%= button_to "log out", destroy_user_session_path, method: :delete, style: 'margin-left: .5em !important' %> 
 <% else %>
  <div> i'm kat! </div>
@@ -26,14 +27,13 @@
 <div class="test2">
 <% if user_signed_in? %>
     <ul>
-    <li><%= link_to "new", new_article_path %></li>
-    <li><%= link_to "edit", edit_profile_path(id: current_user) %></li>
-    <li><%= link_to "view", profile_path(id: current_user) %></li>
+	    <li><%= link_to "new post", new_article_path %></li>
+	    <li><%= link_to "edit profile", edit_profile_path(id: current_user) %></li>
     </ul>
 <% else %>
     <ul>
-    <li><a href="/profiles/1">me</a></li>
-    <li><%= link_to "refresh", articles_path %></li>
+  	 	<li><a href="/profiles/1">me</a></li>
+ 		<li><%= link_to "refresh", articles_path %></li>
     </ul>
 <% end %>
 </div>
@@ -42,7 +42,7 @@
 
 <hr>
 
-<p><%= link_to "tags", tags_path %> | <a href="https://subscribeopenly.net/subscribe/?url=https%3A%2F%2Fbubblegum.girlonthemoon.xyz%2Farticles.rss">feed</a> | <a href="https://bytes.4-walls.net/kat/bubblegum">source</a> | <%= Article.public_count %> total posts </p>
+<p><%= link_to "tags", tags_path %> | <a href="https://subscribeopenly.net/subscribe/?url=https://bubblegum.girlonthemoon.xyz/articles.xml">feed</a> | <a href="https://bytes.4-walls.net/kat/bubblegum">source</a> | <%= Article.public_count %> total posts </p>
 
 <h4>2025</h4>
 

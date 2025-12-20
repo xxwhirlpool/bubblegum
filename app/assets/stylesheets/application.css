@@ -34,6 +34,7 @@ body {
 	background: url('bg5.jpg') repeat;
 	font-family: var(--font-accent);
 	font-size: 1.1rem;
+	margin: 0;
 }
 
 .main {
@@ -41,7 +42,7 @@ body {
 	width: 800px;
 	min-height: 800px;
 	max-height: 10000px;
-	margin: auto auto 1em auto;
+	margin: auto;
 	font-family: var(--font-main) !important;
 	padding: 1em;
 	text-align:left;

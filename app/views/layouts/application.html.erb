@@ -30,7 +30,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application.css" %>
     <%= favicon_link_tag asset_path("favicon.png") %>
-    <%= auto_discovery_link_tag :rss, articles_path(:format => :rss) %>
+    <%= auto_discovery_link_tag :rss, articles_path(:format => :xml) %>
     <%= javascript_importmap_tags %>
     
     <link rel="stylesheet" href="https://unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-frappe.css">
