@@ -1,4 +1,10 @@
-<div id="main">
+<div class="main">
+
+<header>
+	<h1 style="margin-bottom:.5rem;">🐬 <span class="p-name">sweet like bubblegum</span></h1>
+</header>
+
+<%= render "articles/navbar" %>
 
 <h2>log in</h2>
 
@@ -20,7 +26,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="margin-block-start:.5em;">
     <%= f.label :icon %><br />
     <%= f.file_field :icon %>
   </div>
