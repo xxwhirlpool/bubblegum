@@ -368,6 +368,10 @@ button, select {
 	margin: 0 !important;
 }
 
+.access-hidden {
+	display: none;
+}
+
 /* HTML comment box */
 
 #HCB_comment_box {

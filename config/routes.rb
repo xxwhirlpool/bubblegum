@@ -12,10 +12,10 @@ end
 Rails.application.routes.draw do
   get "/tags", to: "tags#index"
 #  get "tags/:edit" => "tags#edit", as: :edit_tag_path
-  get "tags/:id" => "tags#show", as: :tag
-  get "tags/:new" => "tags#new"
+  # get "tags/:id" => "tags#show"
+  # get "tags/:new" => "tags#new"
 #  resources :tag, path: '', only: [:show] 
-  resources :tags
+ resources :tags
 end
 
 Rails.application.routes.draw do

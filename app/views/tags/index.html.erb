@@ -9,11 +9,16 @@
 <ul>
   <% @tag.each do |tag| %>
     <li>
-      <%= render tag %>
+      <%= render tag %> (<span style="color: var(--main-color);"><%= tag.articles.size %><span class="access-hidden"> post(s)</span></span>)
     </li>
   <% end %>
 </ul>
 
 <hr>
+
+<% if user_signed_in? %>
+	<a href="/tags/new">new tag</a>
+<% else %>
+<% end %>
 
 </div>
