@@ -7,9 +7,9 @@
 <%= render "articles/navbar" %>
 
 <ul>
-  <% @tag.each do |tag| %>
+  <% @tag.sort_by(&:name).each do |t| %>
     <li>
-      <%= render tag %> (<span style="color: var(--main-color);"><%= tag.articles.size %><span class="access-hidden"> post(s)</span></span>)
+      <%= render t %> (<span style="color: var(--main-color);"><%= pluralize(t.articles.size, "post") %></span>)
     </li>
   <% end %>
 </ul>
