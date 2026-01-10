@@ -221,7 +221,7 @@ div.article_date_text, time {
 	display: block;
 	background: var(--main-color-darkest);
 	color: var(--text-color-code);
-	font-size: 1rem;
+	font-size: 0.9rem;
 }
 
 .pbody pre code {

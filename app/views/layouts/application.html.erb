@@ -3,10 +3,10 @@
   <head>
     <title>
     	<% if defined?(@article.title) %>
-    		<%= @article.title %>
+    		<%= @article.title %> :: bubblegum
    		<% else %>
   			<% if defined?(@tag.name) %>
-  				<%= @tag.name %>
+  				<%= @tag.name %> :: bubblegum
 			<% else %>
 	    	sweet like bubblegum
     	<% end %>
@@ -19,7 +19,7 @@
     <meta name="author" content="girl on the moon">
 
     <meta property="og:title" content="<% if defined?(@article.title) %> <%= @article.title %> <% end %>">
-    <meta property="og:description" content="<% if defined?(@article.body) %> <%= truncate(@article.body, length: 27, separator: /\s/) %> <% end %>">
+    <meta property="og:description" content="<% if defined?(@article.body) %> <%= truncate(strip_tags(markdown(@article.body)), length: 27, separator: /\s/) %> <% end %>">
     <meta property="og:image" content="<% if defined?(@article.slug) && !(@article.slug).nil? %> <%= article_url(@article.slug, format: :png) %> <% end %>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<% if defined?(@article.slug) && !(@article.slug).nil? %> <%= article_url(@article.slug) %> <% end %>">
