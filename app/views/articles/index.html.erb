@@ -44,13 +44,29 @@
 
 <p><%= link_to "tags", tags_path %> | <a href="https://subscribeopenly.net/subscribe/?url=https://bubblegum.girlonthemoon.xyz/articles.xml">feed</a> | <a href="https://bytes.4-walls.net/kat/bubblegum">source</a> | <%= Article.public_count %> total posts </p>
 
+<h4>2026</h4>
+
+<dl class="h-feed hfeed">
+   <% Article.where(created_at: Date.parse("2026-01-01")..Date.parse("2026-12-31")).reverse.each do |article| %>
+     <% unless article.archived? %>
+       <dt>
+			<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
+       </dt>
+       <dd class="h-entry">
+         <%= link_to article.title, article, class: "u-url p-name" %>
+       </dd>
+
+     <% end %>
+   <% end %>
+ </dl>
+
 <h4>2025</h4>
 
 <dl class="h-feed hfeed">
    <% Article.where(created_at: Date.parse("2025-01-01")..Date.parse("2025-12-31")).reverse.each do |article| %>        
      <% unless article.archived? %>
        <dt>
-       		<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
+			<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
        </dt>
        <dd class="h-entry">
          <%= link_to article.title, article, class: "u-url p-name" %>                                                        
@@ -66,7 +82,7 @@
   <% Article.where(created_at: Date.parse("2024-01-01")..Date.parse("2024-12-31")).reverse.each do |article| %>
     <% unless article.archived? %>
       <dt>
-     	 <time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
+			<time <%= tag.attributes datetime: article.created_at.strftime('%Y-%m-%d') %> ><%= article.created_at.strftime('%Y %b %d') %></time>
       </dt>
 	  <dd class="h-entry">
          <%= link_to article.title, article, class: "u-url p-name" %>
