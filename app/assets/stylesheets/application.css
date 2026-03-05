@@ -201,7 +201,7 @@ div.article_date_text, time {
 	font-family: var(--font-main);
 }
 
-.pbody code.inline {
+.pbody code.inline, .pbody code {
 	font-family: var(--font-monospace);
 	display: inline-block;
 	padding: 0;
@@ -212,7 +212,16 @@ div.article_date_text, time {
 	font-size: 1rem;
 }
 
-.pbody code {
+.pbody a > code {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.pbody a:hover > code {
+	text-decoration: none;
+}
+
+.pbody pre code {
 	font-family: var(--font-monospace);
 	display: block;
 	text-align: left;
@@ -222,10 +231,6 @@ div.article_date_text, time {
 	background: var(--main-color-darkest);
 	color: var(--text-color-code);
 	font-size: 0.9rem;
-}
-
-.pbody pre code {
-	/* padding-top: 0 !important; */
 	white-space: preserve;
 }
 
@@ -370,6 +375,17 @@ button, select {
 
 .access-hidden {
 	display: none;
+}
+
+.alt-det {
+	background: var(--accent-color);
+	padding-block: .5rem;
+	padding-inline: .5rem;
+	color: var(--main-color-darker);
+}
+
+.alt-sum {
+	cursor: pointer;
 }
 
 /* HTML comment box */
