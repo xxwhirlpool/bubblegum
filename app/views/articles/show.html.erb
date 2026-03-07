@@ -10,7 +10,7 @@
     <%= image_tag url_for(@article.icon) %>
 <% end %>
 
-<p>
+<div class="article_info">
 	<div class="article_date_text">
 		<time class="article_time dt-published" <%= tag.attributes datetime: @article.created_at.strftime('%Y-%m-%d') %> ><%= @article.created_at.strftime('%Y %b %d') %></time>
 	</div>
@@ -21,9 +21,8 @@
 		<span style="color:var(--main-color);">
 			<%= @article.body.scan(/[\p{Alpha}\-']+/).size %> words
 		</span>
-	</span> 
-	
-</p>
+	</span>
+</div>
 
 <div class="pbody">
 	<article>

@@ -18,6 +18,84 @@
  *= require_self
  */
 
+@media only screen and (max-width: 50em) {
+	.main {
+		font-size: 4vw !important;
+		width: 100% !important;
+		min-height: 100% !important;
+		max-height: 100% !important;
+		word-wrap: break-word !important;
+		padding: 0 !important;
+	}
+
+	.main > * {
+		padding: 1rem !important;
+	}
+
+	h1,h2,h3,h4, time {
+		font-size: revert !important;
+	}
+
+	div.article_date_text:has(time.article_time) {
+		padding-right: 0 !important;
+	}
+
+	span.tag_link {
+		padding: 0 !important;
+	}
+
+	#HCB_comment_box #hcb_form textarea {
+		min-width: 100% !important;
+	}
+
+	div.article_info {
+		padding-block: 0 !important;
+	}
+
+	.main > nav {
+		padding: 0 1rem !important;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	.main {
+		font-size: 4vw !important;
+		width: 100% !important;
+		min-height: 100% !important;
+		max-height: 100% !important;
+		word-wrap: break-word !important;
+		padding: 0 !important;
+	}
+
+	.main > * {
+		padding: 1rem !important;
+	}
+
+	h1,h2,h3,h4, time {
+		font-size: revert !important;
+	}
+
+	div.article_date_text:has(time.article_time) {
+		padding-right: 0 !important;
+	}
+
+	span.tag_link {
+		padding: 0 !important;
+	}
+
+	#HCB_comment_box #hcb_form textarea {
+		min-width: 100% !important;
+	}
+
+	div.article_info {
+		padding-block: 0 !important;
+	}
+
+	.main > nav {
+		padding: 0 1rem !important;
+	}
+}
+
 :root {
 	--font-main: "Gudea", sans-serif;
 	--font-accent: "Raleway", sans-serif;
@@ -181,6 +259,11 @@ div.article_date, time {
 	font-family: var(--font-main);
 	margin-top: 1em;
 	font-size: 1.1rem;
+}
+
+div.article_info {
+	display: block;
+	padding-block: 1rem;
 }
 
 div.article_date_text:has(time.article_time) {
