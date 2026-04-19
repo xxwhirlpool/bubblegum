@@ -47,11 +47,37 @@
 <script src="https://bubbles.town/vote.js" defer></script>
 
 <div id="webmentions_bbgm">
-	<h3 id="webmentions" style="margin-bottom:.5rem;">webmentions</h3>
-	
-	<script type="module" src="https://esm.run/seia" async></script>
+	<h3 id="webmentions">webmentions</h3>
 
-	<s-e-i-a css="[text='sm']{display:none!important}[rounded~='avatar']{border-radius:0!important}[p-4='']{padding:.5rem 0 .8rem .8rem!important;}[transition='']{transition-property:none!important;transition-timing-function:none!important;transition-duration:0!important}[space-x~='reverse'] > :not([hidden]) ~ :not([hidden]){--un-space-x-reverse:-0.5!important;}[bg~='seia-bg']{background:transparent!important;}"></s-e-i-a>
+	<ul id="wbm-mentions-list" style="margin-bottom:2rem;"></ul>
+
+<!--
+	<details>
+		<summary>likes</summary>
+			<ul id="wbm-likes-list"></ul>
+	</details>
+-->
+	<script>
+		async function wbmJson() {
+			const postUrl = window.location.href;
+
+			mentions = await fetch("https://webmention.io/api/mentions.jf2?target=" + postUrl).then(res => res.json()).then((res) => res.children);
+
+			document.getElementById("wbm-mentions-list").innerHTML = mentions.filter((wm) => ["in-reply-to", "mention-of"].includes(wm["wm-property"])).map((m) => (
+				`<li>
+					<a href=${m.url}>${m.author.name}</a> said: ${m.content.text}
+				</li>`
+			))
+
+		//	document.getElementById("wbm-likes-list").innerHTML = mentions.filter((wm) => ["like-of"].includes(wm["wm-property"])).map((m) => (
+		//		`
+		//		<a href=${m.url}>${m.author.name}</a>
+		//		`
+		//	))
+		};
+
+		wbmJson();
+	</script>
 
 	<%= render "articles/wbmnform" %>
 	
