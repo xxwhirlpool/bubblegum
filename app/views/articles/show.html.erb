@@ -49,19 +49,19 @@
 <div id="webmentions_bbgm">
 	<h3 id="webmentions">webmentions</h3>
 
-	<ul id="wbm-mentions-list" style="margin-block-end:1.5rem;"></ul>
+	<ul id="wbm-mentions-list" style="margin-block-end:1.5rem;">loading...</ul>
 
-<!--
-	<details>
-		<summary>likes</summary>
-			<ul id="wbm-likes-list"></ul>
-	</details>
--->
+	<ul id="wbm-likes-rbs-count">loading...</ul>
+
 	<script>
 		async function wbmJson() {
 			const postUrl = window.location.href;
 
 			mentions = await fetch("https://webmention.io/api/mentions.jf2?target=" + postUrl).then(res => res.json()).then((res) => res.children);
+
+			mentionsLikeCount = await fetch("https://webmention.io/api/count.json?target=" + postUrl).then(res => res.json()).then((res) => res.type.like);
+
+			mentionsRbCount = await fetch("https://webmention.io/api/count.json?target=" + postUrl).then(res => res.json()).then((res) => res.type.repost);
 
 			document.getElementById("wbm-mentions-list").innerHTML = mentions.filter((wm) => ["in-reply-to", "mention-of"].includes(wm["wm-property"])).map((m) => (
 				`<li>
@@ -69,11 +69,15 @@
 				</li>`
 			))
 
-		//	document.getElementById("wbm-likes-list").innerHTML = mentions.filter((wm) => ["like-of"].includes(wm["wm-property"])).map((m) => (
-		//		`
-		//		<a href=${m.url}>${m.author.name}</a>
-		//		`
-		//	))
+			if (mentionsLikeCount || mentionsRbCount) {
+				document.getElementById("wbm-likes-rbs-count").innerHTML =
+					`<li>
+						<span style="color: var(--main-color);">${mentionsLikeCount}</span> likes
+					</li>
+					<li>
+						<span style="color: var(--main-color);">${mentionsRbCount}</span> reposts
+					</li>`
+				}
 		};
 
 		wbmJson();
