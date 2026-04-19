@@ -263,7 +263,7 @@ div.article_date, time {
 
 div.article_info {
 	display: block;
-	padding-block: 1rem;
+	padding-block-start: 1rem;
 }
 
 div.article_date_text:has(time.article_time) {
@@ -462,7 +462,7 @@ button, select {
 
 .alt-det {
 	background: var(--accent-color);
-	padding-block: .5rem;
+	padding-block: .2rem;
 	padding-inline: .5rem;
 	color: var(--main-color-darker);
 }
