@@ -7,7 +7,7 @@
 <%= render "navbar" %>
 
 <% if @article.icon.attached? %>
-    <%= image_tag url_for(@article.icon) %>
+    <%= image_tag url_for(@article.icon), class: "u-photo" %>
 <% end %>
 
 <div class="article_info">
@@ -27,23 +27,19 @@
 </div>
 
 <div class="pbody">
-	<article>
+	<article class="e-content">
 		<%== markdown(@article.body) %>
 	</article>
 </div>
 
+<hr>
+
 <% if user_signed_in? %>
-<p class="pbody">
-<%= link_to "edit", edit_article_path(@article) %> |
-<%= link_to "destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-</p>
+	<p class="pbody">
+		<%= link_to "edit", edit_article_path(@article) %>
+	</p>
 <% else %>
 <% end %>
-
-<hr>
 
 <div class="bubbles-vote"></div>
 <script src="https://bubbles.town/vote.js" defer></script>
@@ -119,6 +115,9 @@
 	
 </div>
 
-<%= render "articles/hcard" %>
+<section id="page-hcard" style="display: none;">
+	<span rel="author" class="p-author h-card" href="<%= root_url %>">kat</a>
+	<a class="u-url" href="<%= article_url(@article.slug) %>">
+</section>
 
 </div>
