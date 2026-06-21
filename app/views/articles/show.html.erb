@@ -56,32 +56,62 @@
 	<ul id="wbm-likes-rbs-count"></ul>
 
 	<script>
+		// ty to my dear friend jordan for reworking most of the below code!!
+		const postUrl = window.location.href;
+
 		async function wbmJson() {
-			const postUrl = window.location.href;
+			try {
+				const mentionsRes = await fetch(`https://webmention.io/api/mentions.jf2?target=${postUrl}`);
+				const mentionsData = await mentionsRes.json();
 
-			mentions = await fetch("https://webmention.io/api/mentions.jf2?target=" + postUrl).then(res => res.json()).then((res) => res.children);
+				// fallback to empty array if no mentions
+				const mentions = mentionsData.children || [];
 
-			mentionsLikeCount = await fetch("https://webmention.io/api/count.json?target=" + postUrl).then(res => res.json()).then((res) => res.type.like);
+				// Fetch like & repost counts (one request instead of two)
+		        const countRes = await fetch(`https://webmention.io/api/count.json?target=${postUrl}`);
+		        const counts = await countRes.json();
 
-			mentionsRbCount = await fetch("https://webmention.io/api/count.json?target=" + postUrl).then(res => res.json()).then((res) => res.type.repost);
+		        // convert undefined/null to 0
+		        const likeCount = counts.type.like || 0;
+		        const repostCount = counts.type.repost || 0;
 
-			document.getElementById("wbm-mentions-list").innerHTML = mentions.filter((wm) => ["in-reply-to", "mention-of"].includes(wm["wm-property"])).map((m) => (
-				`<li>
-					<a href=${m.url}>${m.author.name}</a> said: ${m.content.text}
-				</li>`
-			))
+				// Build the HTML for replies & mentions
+				const mentionsHtml = mentions
+					.filter((wm) => ["in-reply-to", "mention-of"].includes(wm["wm-property"]))
+					.map((m) => {
+						// Safe author name: use name, or URL, or "Anonymous" if both missing
+						const authorName = m.author?.name || m.author?.url || "[unknown]";
 
-			if (mentionsLikeCount || mentionsRbCount) {
-				document.getElementById("wbm-likes-rbs-count").innerHTML =
-					`<li>
-						<span style="color: var(--main-color);">${mentionsLikeCount}</span> likes
-					</li>
-					<li>
-						<span style="color: var(--main-color);">${mentionsRbCount}</span> reposts
-					</li>`
-				}
+						// Safe content: show text or fallback message
+						const content = m.content?.text || "(no text)";
+
+						return `
+							<li>
+								<a href="${m.url}" target="_blank" rel="noopener">${authorName}</a> said: ${content}
+							</li>
+						`;
+					})
+					// converts array into one string (AKA removes the commas)
+					.join("");
+
+					document.getElementById("wbm-mentions-list").innerHTML = mentionsHtml;
+
+				// Only show likes/reposts if there is at least one
+				if (likeCount > 0 || repostCount > 0) {
+					document.getElementById("wbm-likes-rbs-count").innerHTML =
+						`<li>
+							<span style="color: var(--main-color);">${likeCount}</span> likes
+						</li>
+						<li>
+							<span style="color: var(--main-color);">${repostCount}</span> reposts
+						</li>`
+					};
+			} catch (err) {
+				console.error("failed to load webmentions:", err)
+			}
 		};
 
+		// run function on page load
 		wbmJson();
 	</script>
 
