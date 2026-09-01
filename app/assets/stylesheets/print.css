@@ -1,0 +1,69 @@
+/*
+
+https://www.matuzo.at/blog/i-totally-forgot-about-print-style-sheets/
+https://piccalil.li/blog/printing-the-web-making-webpages-look-good-on-paper/
+https://www.smashingmagazine.com/2013/03/tips-and-tricks-for-print-style
+
+*/
+
+/* basic reset */
+*,
+*:before,
+*:after,
+*:first-letter,
+p:first-line,
+div:first-line,
+blockquote:first-line,
+li:first-line {
+	background: transparent !important;
+	color: #000 !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+
+/* remove elements unnecessary for print form */
+nav, .u-photo, #webmentions_bbgm, .bubbles-vote, .alt-det, button, select, input, input[type="submit"], label, a.u-url, div.article_info > *:not(div.article_date_text), .pbody + hr {
+	display: none;
+}
+
+hr::after {
+	content: "";
+}
+
+/* revealing URLs in links */
+a[href^='http']:not([href*='mywebsite.com']):after {
+	content: " (" attr(href) ")";
+}
+
+/* revealing expansions in abbrs */
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
+
+/* page size margins etc */
+@page {
+	size: A4 portrait;
+	margin: 2cm;
+}
+
+/* prevent img overflow */
+img {
+	max-width: 100% !important;
+}
+
+/* prevent headings from being printed at the bottom of the page */
+header h1, h2, h3 {
+	break-after: avoid;
+}
+
+/* main content */
+.pbody {
+	break-before: avoid;
+	widows: 4;
+	orphans: 2;
+}
+
+/* avoid elements being split between two pages */
+.pbody blockquote, .pbody ul {
+	break-inside: avoid;
+}
