@@ -31,7 +31,7 @@ hr::after {
 }
 
 /* revealing URLs in links */
-a[href^='http']:not([href*='mywebsite.com']):after {
+a[href^="http"]:not([href*="bubblegum.girlonthemoon.xyz"]):after {
 	content: " (" attr(href) ")";
 }
 
@@ -66,4 +66,13 @@ header h1, h2, h3 {
 /* avoid elements being split between two pages */
 .pbody blockquote, .pbody ul {
 	break-inside: avoid;
+}
+
+/* reset to default li styles */
+li::before {
+	content: "";
+}
+
+li {
+	list-style-type: disc;
 }
