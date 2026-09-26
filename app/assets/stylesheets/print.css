@@ -22,7 +22,7 @@ li:first-line {
 }
 
 /* remove elements unnecessary for print form */
-nav, .u-photo, #webmentions_bbgm, .bubbles-vote, .alt-det, button, select, input, input[type="submit"], label, a.u-url, div.article_info > *:not(div.article_date_text), .pbody + hr {
+nav, .u-photo, #webmentions_bbgm, .bubbles-vote, .alt-det, button, select, input, input[type="submit"], label, a.u-url, div.article_info > *:not(div.article_date_text), .pbody + hr, .edit-link {
 	display: none;
 }
 
