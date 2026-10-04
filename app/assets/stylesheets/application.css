@@ -329,6 +329,24 @@ div.article_date_text, time {
 	margin-inline-start: 1rem;
 }
 
+.pbody figure {
+	display: grid;
+	justify-items: center;
+}
+
+.pbody figure img {
+	max-width: 500px;
+	height: auto;
+	object-fit: cover;
+	display: block;
+}
+
+.pbody figure figcaption {
+	font-size: 0.95rem;
+	font-style: italic;
+	margin-block: .8rem;
+}
+
 span.tag_link {
 	font-family: var(--font-main);
 	display: inline-block;
