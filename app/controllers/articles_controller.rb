@@ -58,6 +58,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def md
+  	render "articles/show.md.erb", layout: false, content_type: "text/markdown"
+  end
+
   private
     def article_params
       params.require(:article).permit(:title, :body, :status, :icon, :tag_id)
